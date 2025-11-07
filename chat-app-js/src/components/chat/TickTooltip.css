@@ -1,0 +1,71 @@
+/* src/components/chat/TickTooltip.css */
+
+.tick-icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: help;
+}
+
+.tick-tooltip {
+    visibility: hidden;
+    background-color: #2D3748; /* Dark grey */
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1000;
+    bottom: 125%; 
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 0.85rem;
+}
+
+.tick-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #2D3748 transparent transparent transparent;
+}
+
+.tick-icon-container:hover .tick-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tick-tooltip-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.tick-tooltip-item:last-child {
+    margin-bottom: 0;
+}
+
+.tick-tooltip-item svg {
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+/* --- THIS IS THE CORRECTED PART --- */
+.tick-tooltip-item .sent-tick {
+    stroke: rgba(255, 255, 255, 0.7);
+}
+
+.tick-tooltip-item .delivered-tick {
+    stroke: rgba(255, 255, 255, 0.7);
+}
+
+.tick-tooltip-item .read-tick {
+    stroke: #4a90e2; /* Blue color for the 'Read' tick */
+}
